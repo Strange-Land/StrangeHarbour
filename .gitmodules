@@ -1,0 +1,3 @@
+[submodule "local_packages/boat-attack-water"]
+	path = local_packages/boat-attack-water
+	url = https://github.com/DavidGoedicke/boat-attack-water
