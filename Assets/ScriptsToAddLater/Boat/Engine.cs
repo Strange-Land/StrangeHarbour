@@ -36,8 +36,9 @@ namespace WaterSystem
         private float _yHeight;
 
 
-       
-        
+        public float lastThrust;
+        public float lastThrottle;
+
         public const float _maxDeflection=25;
         public float _deflectionTarget;
         public float _isDeflection;
@@ -73,7 +74,7 @@ namespace WaterSystem
         public void setPower(float inpower)
         {
             _enginePower = Mathf.Clamp(inpower, -1f, 1f);
-            
+            lastThrottle = _enginePower;
         }
         
         public void setDeflection(float steering)
@@ -98,7 +99,7 @@ namespace WaterSystem
             if (!Mathf.Approximately(_isDeflection, _deflectionTarget))
             {
 
-                _isDeflection = Mathf.MoveTowards(_isDeflection, _deflectionTarget,5*Time.deltaTime);
+                _isDeflection = Mathf.MoveTowards(_isDeflection, _deflectionTarget,10*Time.deltaTime);
                
 
               
@@ -112,19 +113,29 @@ namespace WaterSystem
             if (_yHeight > -0.1f) // if the engine is deeper than 0.1
             {
                  
-                
-                
                 float speed = RB.linearVelocity.magnitude; 
                 float vRef = Mathf.Max(speed, 0.1f);
+
                 
-                float p_actual = EnginePower * efficiency * _enginePower;
+                float eff      = efficiency;
+
+                if (_enginePower < 0f) {
+                    // limit max reverse to 50 %
+                    _enginePower = Mathf.Max(_enginePower, -0.5f);
+                    // reduce reverse efficiency further if desired
+                    eff     *= 0.5f;
+                    //—or equivalently: vRef *= 2f; to halve thrust at speed
+                }
+                
+                
+                
+                float p_actual = EnginePower * eff * _enginePower;
                 
                 float thrustNewton = p_actual / vRef;
+
+                lastThrust = thrustNewton;
                 
-                
-                //  RB.AddForce(horsePower * modifier * forward, ForceMode.Acceleration); // add force forward based on input and horsepower
                 RB.AddForceAtPosition(thrustNewton * transform.forward,  transform.position,ForceMode.Force);
-                // RB.AddRelativeTorque(-Vector3.right * modifier, ForceMode.Acceleration);
             }
 
            

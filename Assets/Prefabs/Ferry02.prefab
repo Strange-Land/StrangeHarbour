@@ -29748,6 +29748,8 @@ MonoBehaviour:
   RB: {fileID: 0}
   engineSound: {fileID: 7332891358340776381}
   enginBurst: {fileID: 5471200416471818537}
+  lastThrust: 0
+  lastThrottle: 0
   _deflectionTarget: 0
   _isDeflection: 0
 --- !u!1 &4799507249618798705
@@ -39587,6 +39589,8 @@ MonoBehaviour:
   RB: {fileID: 0}
   engineSound: {fileID: 6379256047440035808}
   enginBurst: {fileID: 669867942020499468}
+  lastThrust: 0
+  lastThrottle: 0
   _deflectionTarget: 0
   _isDeflection: 0
 --- !u!1 &5723704524195763496
@@ -54197,10 +54201,12 @@ GameObject:
   m_Component:
   - component: {fileID: 3119502527397936694}
   - component: {fileID: 6735263060149840701}
+  - component: {fileID: 2650254482589222796}
   - component: {fileID: 5232769020944588084}
   - component: {fileID: 2086394790459009743}
   - component: {fileID: 6977604424143810851}
   - component: {fileID: 5587685600341720472}
+  - component: {fileID: 1128303313339577568}
   m_Layer: 0
   m_Name: Ferry02
   m_TagString: Untagged
@@ -54256,6 +54262,31 @@ Rigidbody:
   m_Interpolate: 1
   m_Constraints: 0
   m_CollisionDetection: 2
+--- !u!114 &2650254482589222796
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7512365166677485931}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d5a57f767e5e46a458fc5d3c628d0cbb, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  GlobalObjectIdHash: 1578297314
+  InScenePlacedSourceGlobalObjectIdHash: 0
+  DeferredDespawnTick: 0
+  Ownership: 1
+  AlwaysReplicateAsRoot: 0
+  SynchronizeTransform: 1
+  ActiveSceneSynchronization: 0
+  SceneMigrationSynchronization: 1
+  SpawnWithObservers: 1
+  DontDestroyWithOwner: 0
+  AutoObjectParentSync: 1
+  SyncOwnerTransformWhenParented: 1
+  AllowOwnerToParent: 0
 --- !u!114 &5232769020944588084
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -54268,10 +54299,14 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 56a4245aa52f05346a4672d0aa735b7a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  ShowTopMostFoldoutHeaderGroup: 1
+  _participantOrder:
+    m_InternalValue: 0
+  isAutonomous: 1
   LeftEngines: []
   RightEngines: []
-  throttle: 0
-  steering: 0
+  in_throttle: 0
+  in_steering: 0
   waterSound:
   - {fileID: 1173327025401681598}
   - {fileID: 1210237989492207745}
@@ -54686,6 +54721,23 @@ MonoBehaviour:
     x: 0
     y: 1301.3062
     z: 0
+--- !u!114 &1128303313339577568
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7512365166677485931}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 08ed2cb131b26c847a5748f6e8240409, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  StartingWaypoint: {fileID: 0}
+  m_pid:
+    pFactor: 0.25
+    iFactor: 0.01
+    dFactor: 0.05
 --- !u!1 &7876956893731220097
 GameObject:
   m_ObjectHideFlags: 0
@@ -69605,7 +69657,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: 38899e89387d2404e9238a262197b99d, type: 3}
       propertyPath: m_LocalPosition.y
-      value: 0
+      value: -0.98
       objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: 38899e89387d2404e9238a262197b99d, type: 3}
       propertyPath: m_LocalPosition.z
@@ -69642,6 +69694,10 @@ PrefabInstance:
     - target: {fileID: 919132149155446097, guid: 38899e89387d2404e9238a262197b99d, type: 3}
       propertyPath: m_Name
       value: Ferry01
+      objectReference: {fileID: 0}
+    - target: {fileID: 3451118302482216456, guid: 38899e89387d2404e9238a262197b99d, type: 3}
+      propertyPath: m_Enabled
+      value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
