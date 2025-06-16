@@ -2,39 +2,45 @@ using System;
 using System.Collections.Generic;
 using Core.Networking;
 using Core.SceneEntities;
-using NUnit.Framework.Constraints;
 using UnityEngine;
-
+using OscSimpl;
 
 namespace WaterSystem
 {
+    [RequireComponent(typeof(Rigidbody))]
     public class Boat : InteractableObject
     {
+        public enum InputMode
+        {
+            Keyboard,
+            OSC,
+            Autonomous
+        }
 
-        public bool isAutonomous = false;
-        public  List<Engine> LeftEngines = new List<Engine>();
-        public  List<Engine> RightEngines = new List<Engine>();
+        [Header("Boat Configuration")]
+        public InputMode controlMode = InputMode.Keyboard;
+        public List<Engine> LeftEngines = new List<Engine>();
+        public List<Engine> RightEngines = new List<Engine>();
+        public List<AudioSource> waterSound = new List<AudioSource>();
 
-        
-        private float throttle;
-        private float steering;
+        public OscIn oscIn;
+        public int listenPort = 7000;
 
+        private float in_throttle;
+        private float in_steering;
+        private Rigidbody m_rigidbody;
 
-        public float in_throttle;
-        public float in_steering;
-        public List<AudioSource> waterSound = new List<AudioSource>(); // Water sound clip
+        [SerializeField] private float rawInputThrottle;
+        [SerializeField] private float rawInputSteering;
 
-        Rigidbody m_rigidbody;
-        //public float speed;   
         private void Awake()
         {
             m_rigidbody = GetComponent<Rigidbody>();
             foreach (var e in GetComponentsInChildren<Engine>())
             {
                 e.RB = m_rigidbody;
-                Vector3 pos =  transform.InverseTransformPoint(e.transform.position);
-               Debug.DrawRay(transform.position,pos,Color.red,10);
-                
+                Vector3 pos = transform.InverseTransformPoint(e.transform.position);
+
                 if (pos.x > 0)
                 {
                     RightEngines.Add(e);
@@ -44,165 +50,218 @@ namespace WaterSystem
                     LeftEngines.Add(e);
                 }
             }
-
-        }
-
-        public override void SetStartingPose(Pose _pose)
-        {
-            throw new System.NotImplementedException();
-        }
-
-        public override void AssignClient(ulong CLID_, ParticipantOrder _participantOrder_)
-        {
-           
-        }
-
-        public override Transform GetCameraPositionObject()
-        {
-           return transform.Find("CameraPosition");
-        }
-
-        public override void Stop_Action()
-        {
-            throw new System.NotImplementedException();
-        }
-
-        public override bool HasActionStopped()
-        {
-            throw new System.NotImplementedException();
         }
 
         void Start()
         {
-            
-            if (waterSound.Count>0)  {
-                waterSound.ForEach(wS => wS.time = UnityEngine.Random.Range(0f, waterSound.Count));
-  
-            }
+            SetupOSC();
 
+            if (waterSound.Count > 0)
+            {
+                waterSound.ForEach(wS => wS.time = UnityEngine.Random.Range(0f, waterSound.Count));
+            }
         }
 
-        // Update is called once per frame
+        private void SetupOSC()
+        {
+            if (oscIn == null)
+            {
+                oscIn = gameObject.GetComponent<OscIn>();
+                if (oscIn == null) oscIn = gameObject.AddComponent<OscIn>();
+            }
+
+            if (!oscIn.isOpen)
+            {
+                oscIn.Open(listenPort);
+            }
+
+            oscIn.MapFloat("/boat/throttle", OnReceiveThrottle);
+            oscIn.MapFloat("/boat/steering", OnReceiveSteering);
+            
+            // throttle, st
+        }
+
         void Update()
         {
-            if (!isAutonomous)
+            if (controlMode == InputMode.Keyboard)
             {
-                float smlAmmount = 0.1f * Time.deltaTime;
-                bool throttleInput = false;
-                bool steerInput = false;
-                if (Input.GetKey(KeyCode.W))
-                {
-                    in_throttle += smlAmmount;
-                    throttleInput = true;
-                }
-
-                if (Input.GetKey(KeyCode.S))
-                {
-                    in_throttle -= smlAmmount;
-                    throttleInput = true;
-                }
-
-                if (Input.GetKey(KeyCode.A))
-                {
-                    in_steering -= 0.3f * Time.deltaTime;
-                    steerInput = true;
-                }
-
-                if (Input.GetKey(KeyCode.D))
-                {
-                    in_steering += 0.3f * Time.deltaTime;
-                    steerInput = true;
-                }
-
-                if (throttleInput == false)
-                {
-
-                    in_throttle = Mathf.MoveTowards(in_throttle, 0, smlAmmount);
-
-                }
-
-                if (steerInput == false)
-                {
-                    in_steering = Mathf.MoveTowards(in_steering, 0, smlAmmount);
-                }
+                HandleKeyboardInput();
             }
 
             if (waterSound.Count > 0)
             {
                 var volume = m_rigidbody.linearVelocity.sqrMagnitude * 0.0001f;
-
                 volume = Mathf.Clamp(volume, 0.05f, 1);
                 waterSound.ForEach(wS => wS.volume = volume);
             }
-            
-            //speed=m_rigidbody.linearVelocity.magnitude;
+        }
 
+        private void HandleKeyboardInput()
+        {
+            float smlAmmount = 0.1f * Time.deltaTime;
+            bool throttleInput = false;
+            bool steerInput = false;
+            if (Input.GetKey(KeyCode.W))
+            {
+                in_throttle += smlAmmount;
+                throttleInput = true;
+                rawInputThrottle = 1f;
+            }
+            if (Input.GetKey(KeyCode.S))
+            {
+                in_throttle -= smlAmmount;
+                throttleInput = true;
+                rawInputThrottle = -1f;
+            }
+            if (Input.GetKey(KeyCode.A))
+            {
+                in_steering -= 0.3f * Time.deltaTime;
+                steerInput = true;
+                rawInputSteering = -1f;
+            }
+            if (Input.GetKey(KeyCode.D))
+            {
+                in_steering += 0.3f * Time.deltaTime;
+                steerInput = true;
+                rawInputSteering = 1f;
+            }
+            if (throttleInput == false)
+            {
+                in_throttle = Mathf.MoveTowards(in_throttle, 0, smlAmmount);
+                rawInputThrottle = 0f;
+            }
+            if (steerInput == false)
+            {
+                in_steering = Mathf.MoveTowards(in_steering, 0, smlAmmount);
+                rawInputSteering = 0f;
+            }
         }
 
         public void LateUpdate()
         {
-            
-            
-            
-            throttle = Mathf.Clamp(in_throttle,-1,1);
-            steering = Mathf.Clamp(in_steering,-1,1);
+            float throttle = Mathf.Clamp(in_throttle, -1, 1);
+            float steering = Mathf.Clamp(in_steering, -1, 1);
             float absSteer = Mathf.Abs(steering);
             float leftPower, rightPower;
 
-// decide which side is “inner” vs “outer”
             bool turningRight = steering > 0f;
             float outer = throttle;
             float inner;
 
-// pick reduction factor based on throttle magnitude
-            if (throttle >= 0.25f) {
-                // max 50% reduction
+            if (throttle >= 0.25f)
+            {
                 inner = throttle * (1f - 0.5f * absSteer);
-            } else {
-                // allow full swing into reverse
+            }
+            else
+            {
                 inner = throttle * (1f - 2f * absSteer);
             }
 
-// assign to each engine bank
-            if (turningRight) {
-                leftPower  = outer;
+            if (turningRight)
+            {
+                leftPower = outer;
                 rightPower = inner;
-            } else {
-                leftPower  = inner;
+            }
+            else
+            {
+                leftPower = inner;
                 rightPower = outer;
             }
 
-            // Debug.Log($"inner{inner},\touter{outer}");
-// clamp just in case
-            leftPower  = Mathf.Clamp(leftPower,  -1f, 1f);
+            leftPower = Mathf.Clamp(leftPower, -1f, 1f);
             rightPower = Mathf.Clamp(rightPower, -1f, 1f);
-         
-            
+
             foreach (var e in LeftEngines)
             {
-                e.setPower(  leftPower);
+                e.setPower(leftPower);
                 e.setDeflection(steering);
             }
             foreach (var e in RightEngines)
             {
-                e.setPower (rightPower);
+                e.setPower(rightPower);
                 e.setDeflection(steering);
             }
-            
-            
-            
         }
 
         public float getSpeed()
         {
-          return m_rigidbody.linearVelocity.magnitude;
+            return m_rigidbody.linearVelocity.magnitude;
         }
 
         public void Move(float _throttle, float _steering)
         {
-            if (!isAutonomous) return;
-           in_throttle=_throttle;
-            in_steering=_steering;
+            if (controlMode != InputMode.Autonomous) return;
+            in_throttle = _throttle;
+            in_steering = _steering;
+            rawInputThrottle = _throttle;
+            rawInputSteering = _steering;
+        }
+
+        private void OnReceiveThrottle(float value)
+        {
+            if (controlMode != InputMode.OSC) return;
+            in_throttle = Mathf.Clamp(value, -1f, 1f);
+            rawInputThrottle = value;
+        }
+
+        private void OnReceiveSteering(float value)
+        {
+            if (controlMode != InputMode.OSC) return;
+            in_steering = Mathf.Clamp(value, -1f, 1f);
+            rawInputSteering = value;
+        }
+
+        private void OnDisable()
+        {
+            if (oscIn != null && oscIn.isOpen)
+            {
+                oscIn.UnmapFloat(OnReceiveThrottle);
+                oscIn.UnmapFloat(OnReceiveSteering);
+            }
+        }
+
+        public override void SetStartingPose(Pose _pose)
+        {
+            transform.SetPositionAndRotation(_pose.position, _pose.rotation);
+            if (m_rigidbody)
+            {
+                m_rigidbody.linearVelocity = Vector3.zero;
+                m_rigidbody.angularVelocity = Vector3.zero;
+            }
+        }
+
+        public override void AssignClient(ulong CLID_, ParticipantOrder _participantOrder_)
+        {
+        }
+
+        public override Transform GetCameraPositionObject()
+        {
+            Transform camPos = transform.Find("CameraPosition");
+            if (camPos == null)
+            {
+                GameObject go = new GameObject("CameraPosition");
+                go.transform.SetParent(transform);
+                go.transform.localPosition = new Vector3(0, 2, -5);
+                return go.transform;
+            }
+            return camPos;
+        }
+
+        public override void Stop_Action()
+        {
+            in_throttle = 0;
+            in_steering = 0;
+            if (m_rigidbody)
+            {
+                m_rigidbody.linearVelocity = Vector3.zero;
+                m_rigidbody.angularVelocity = Vector3.zero;
+            }
+        }
+
+        public override bool HasActionStopped()
+        {
+            if (m_rigidbody == null) return true;
+            return m_rigidbody.linearVelocity.sqrMagnitude < 0.01f && m_rigidbody.angularVelocity.sqrMagnitude < 0.01f;
         }
     }
 }
