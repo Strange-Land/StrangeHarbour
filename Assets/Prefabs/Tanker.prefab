@@ -29651,11 +29651,13 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 5a963e455645f1345a6f09d444483862, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  RB: {fileID: 0}
   engineSound: {fileID: 1564622146437859427}
-  waterSound: {fileID: 3316017621827720390}
-  steeringTorque: 5
-  horsePower: 18
-  enginePosition: {x: 0, y: 0, z: 0}
+  enginBurst: {fileID: 0}
+  lastThrust: 0
+  lastThrottle: 0
+  _deflectionTarget: 0
+  _isDeflection: 0
 --- !u!1 &8849442125777052983
 GameObject:
   m_ObjectHideFlags: 0
@@ -34615,6 +34617,9 @@ PrefabInstance:
       addedObject: {fileID: 8076473437858348995}
     - targetCorrespondingSourceObject: {fileID: 919132149155446097, guid: 152fc71ce7a07ff42910b82bf224ac56, type: 3}
       insertIndex: -1
+      addedObject: {fileID: -7358323442816032939}
+    - targetCorrespondingSourceObject: {fileID: 919132149155446097, guid: 152fc71ce7a07ff42910b82bf224ac56, type: 3}
+      insertIndex: -1
       addedObject: {fileID: 9132039480933248984}
   m_SourcePrefab: {fileID: 100100000, guid: 152fc71ce7a07ff42910b82bf224ac56, type: 3}
 --- !u!4 &5840019460430770672 stripped
@@ -34906,6 +34911,31 @@ MonoBehaviour:
     x: 0
     y: 2118960
     z: 0
+--- !u!114 &-7358323442816032939
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6503262103743785802}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d5a57f767e5e46a458fc5d3c628d0cbb, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  GlobalObjectIdHash: 1335741618
+  InScenePlacedSourceGlobalObjectIdHash: 0
+  DeferredDespawnTick: 0
+  Ownership: 1
+  AlwaysReplicateAsRoot: 0
+  SynchronizeTransform: 1
+  ActiveSceneSynchronization: 0
+  SceneMigrationSynchronization: 1
+  SpawnWithObservers: 1
+  DontDestroyWithOwner: 0
+  AutoObjectParentSync: 1
+  SyncOwnerTransformWhenParented: 1
+  AllowOwnerToParent: 0
 --- !u!114 &9132039480933248984
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -34918,6 +34948,12 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 56a4245aa52f05346a4672d0aa735b7a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _engine: {fileID: 0}
-  throttle: 0
-  steering: 0
+  ShowTopMostFoldoutHeaderGroup: 1
+  _participantOrder:
+    m_InternalValue: 0
+  isAutonomous: 0
+  LeftEngines: []
+  RightEngines: []
+  in_throttle: 0
+  in_steering: 0
+  waterSound: []
