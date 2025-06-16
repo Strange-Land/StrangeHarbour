@@ -54249,7 +54249,7 @@ Rigidbody:
   m_Mass: 13000
   m_Drag: 0.0025
   m_AngularDrag: 0.05
-  m_CenterOfMass: {x: 0, y: 0, z: -0.1}
+  m_CenterOfMass: {x: 0, y: -0.25, z: -0.1}
   m_InertiaTensor: {x: 1, y: 1, z: 1}
   m_InertiaRotation: {x: 0, y: 0, z: 0, w: 1}
   m_IncludeLayers:
@@ -54305,7 +54305,7 @@ MonoBehaviour:
   ShowTopMostFoldoutHeaderGroup: 1
   _participantOrder:
     m_InternalValue: 0
-  controlMode: 1
+  controlMode: 2
   LeftEngines: []
   RightEngines: []
   waterSound:
@@ -69738,7 +69738,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: 38899e89387d2404e9238a262197b99d, type: 3}
       propertyPath: m_LocalPosition.y
-      value: -0.98
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: 38899e89387d2404e9238a262197b99d, type: 3}
       propertyPath: m_LocalPosition.z

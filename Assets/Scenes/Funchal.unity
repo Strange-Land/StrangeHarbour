@@ -93,7 +93,7 @@ LightmapSettings:
     m_ExportTrainingData: 0
     m_TrainingDataDestination: TrainingData
     m_LightProbeSampleCountMultiplier: 4
-  m_LightingDataAsset: {fileID: 20201, guid: 0000000000000000f000000000000000, type: 0}
+  m_LightingDataAsset: {fileID: 112000002, guid: fb3cfb44931cd7941b75219a41206543, type: 2}
   m_LightingSettings: {fileID: 0}
 --- !u!196 &4
 NavMeshSettings:
@@ -1236,6 +1236,10 @@ PrefabInstance:
       propertyPath: m_StaticEditorFlags
       value: 2147483647
       objectReference: {fileID: 0}
+    - target: {fileID: -6452566696252040975, guid: 44ff1538eaf08054a909ae4943181927, type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 104.8
+      objectReference: {fileID: 0}
     - target: {fileID: -6410232053624976932, guid: 44ff1538eaf08054a909ae4943181927, type: 3}
       propertyPath: m_StaticEditorFlags
       value: 2147483647
@@ -1564,6 +1568,10 @@ PrefabInstance:
       propertyPath: m_StaticEditorFlags
       value: 2147483647
       objectReference: {fileID: 0}
+    - target: {fileID: -4584960455318854381, guid: 44ff1538eaf08054a909ae4943181927, type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 105
+      objectReference: {fileID: 0}
     - target: {fileID: -4583239501551788091, guid: 44ff1538eaf08054a909ae4943181927, type: 3}
       propertyPath: m_StaticEditorFlags
       value: 2147483647
@@ -1788,6 +1796,10 @@ PrefabInstance:
       propertyPath: m_StaticEditorFlags
       value: 2147483647
       objectReference: {fileID: 0}
+    - target: {fileID: -3564075548312129609, guid: 44ff1538eaf08054a909ae4943181927, type: 3}
+      propertyPath: 'm_Materials.Array.data[0]'
+      value: 
+      objectReference: {fileID: 2100000, guid: 1974955c7542f7946b1d7629791b144d, type: 2}
     - target: {fileID: -3544508411463657943, guid: 44ff1538eaf08054a909ae4943181927, type: 3}
       propertyPath: m_StaticEditorFlags
       value: 2147483647
@@ -1895,6 +1907,10 @@ PrefabInstance:
     - target: {fileID: -2982819900095046958, guid: 44ff1538eaf08054a909ae4943181927, type: 3}
       propertyPath: m_StaticEditorFlags
       value: 2147483647
+      objectReference: {fileID: 0}
+    - target: {fileID: -2942028665405544903, guid: 44ff1538eaf08054a909ae4943181927, type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 105
       objectReference: {fileID: 0}
     - target: {fileID: -2924253357180662184, guid: 44ff1538eaf08054a909ae4943181927, type: 3}
       propertyPath: m_StaticEditorFlags
@@ -2691,6 +2707,10 @@ PrefabInstance:
     - target: {fileID: 1671283568157442700, guid: 44ff1538eaf08054a909ae4943181927, type: 3}
       propertyPath: m_StaticEditorFlags
       value: 2147483647
+      objectReference: {fileID: 0}
+    - target: {fileID: 1682923124598896303, guid: 44ff1538eaf08054a909ae4943181927, type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 105
       objectReference: {fileID: 0}
     - target: {fileID: 1805182273410069709, guid: 44ff1538eaf08054a909ae4943181927, type: 3}
       propertyPath: m_StaticEditorFlags
@@ -3884,6 +3904,10 @@ PrefabInstance:
       propertyPath: m_StaticEditorFlags
       value: 2147483647
       objectReference: {fileID: 0}
+    - target: {fileID: 8016459650975248271, guid: 44ff1538eaf08054a909ae4943181927, type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 8068586219998277675, guid: 44ff1538eaf08054a909ae4943181927, type: 3}
       propertyPath: m_StaticEditorFlags
       value: 2147483647
@@ -4202,54 +4226,6 @@ Transform:
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 681.6, y: 0, z: 108.9}
-  m_LocalScale: {x: 1, y: 1, z: 1}
-  m_ConstrainProportionsScale: 0
-  m_Children: []
-  m_Father: {fileID: 0}
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!1 &1154792102
-GameObject:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  serializedVersion: 6
-  m_Component:
-  - component: {fileID: 1154792104}
-  - component: {fileID: 1154792103}
-  m_Layer: 0
-  m_Name: ScenarioManager
-  m_TagString: Untagged
-  m_Icon: {fileID: 0}
-  m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
-  m_IsActive: 1
---- !u!114 &1154792103
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1154792102}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 40631268dd117d340bb206f4e52975ba, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  _visualSceneToUse:
-    sceneAsset: {fileID: 0}
-    required: 0
-    buildIndex: -1
---- !u!4 &1154792104
-Transform:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1154792102}
-  serializedVersion: 2
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -4795,4 +4771,3 @@ SceneRoots:
   - {fileID: 85043992}
   - {fileID: 1401312518}
   - {fileID: 1123908122}
-  - {fileID: 1154792104}
