@@ -24,8 +24,7 @@ namespace WaterSystem
         public List<AudioSource> waterSound = new List<AudioSource>();
 
         public OscIn oscIn;
-        public int listenPort = 7000;
-
+       
         private float in_throttle;
         private float in_steering;
         private Rigidbody m_rigidbody;
@@ -55,7 +54,6 @@ namespace WaterSystem
         void Start()
         {
             SetupOSC();
-
             if (waterSound.Count > 0)
             {
                 waterSound.ForEach(wS => wS.time = UnityEngine.Random.Range(0f, waterSound.Count));
@@ -72,13 +70,11 @@ namespace WaterSystem
 
             if (!oscIn.isOpen)
             {
-                oscIn.Open(listenPort);
+                oscIn.Open(oscIn.port);
             }
 
-            oscIn.MapFloat("/boat/throttle", OnReceiveThrottle);
+            oscIn.MapInt("/PSI_LINEAR/out", OnReceiveThrottle);
             oscIn.MapFloat("/boat/steering", OnReceiveSteering);
-            
-            // throttle, st
         }
 
         void Update()
@@ -143,7 +139,7 @@ namespace WaterSystem
             float steering = Mathf.Clamp(in_steering, -1, 1);
             float absSteer = Mathf.Abs(steering);
             float leftPower, rightPower;
-
+            LastShouldSteering = steering;
             bool turningRight = steering > 0f;
             float outer = throttle;
             float inner;
@@ -183,6 +179,8 @@ namespace WaterSystem
             }
         }
 
+        public float LastShouldSteering { get; private set; }
+
         public float getSpeed()
         {
             return m_rigidbody.linearVelocity.magnitude;
@@ -197,10 +195,10 @@ namespace WaterSystem
             rawInputSteering = _steering;
         }
 
-        private void OnReceiveThrottle(float value)
+        private void OnReceiveThrottle(int value)
         {
             if (controlMode != InputMode.OSC) return;
-            in_throttle = Mathf.Clamp(value, -1f, 1f);
+            in_throttle = Mathf.Clamp(((float)value/50f)-1, -1f, 1f);
             rawInputThrottle = value;
         }
 
@@ -215,7 +213,7 @@ namespace WaterSystem
         {
             if (oscIn != null && oscIn.isOpen)
             {
-                oscIn.UnmapFloat(OnReceiveThrottle);
+                oscIn.UnmapInt(OnReceiveThrottle);
                 oscIn.UnmapFloat(OnReceiveSteering);
             }
         }

@@ -1,0 +1,17 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5ae27342a871a464bbd45d957d5515e6, type: 3}
+  m_Name: RemoteOpperator
+  m_EditorClassIdentifier: 
+  ID: RemoteOpperator
+  AuthoritativeMode: 0
+  Prefab: {fileID: 8735471943892320363, guid: fba4938b2bb1344578b18a97c34f94d6, type: 3}

@@ -88,6 +88,14 @@ namespace WaterSystem
           //  Debug.Log($"is: {_isDeflection}, new: {steering}, target:{_deflectionTarget}");
         }
 
+        public float GetIsDeflection()
+        {
+            return _isDeflection/_maxDeflection;
+        }
+        public float GetEnginePower()
+        {
+            return _enginePower;
+        }
 
         private void Update()
         {
@@ -155,12 +163,12 @@ namespace WaterSystem
 
            
             var tmp = ps_em.rateOverTime;
-            tmp.constant = Mathf.Lerp(4, 75, pwr);
+            tmp.constant = Mathf.Lerp(4, 150, pwr);
             ps_em.rateOverTime = tmp;
             
             
             tmp = ps_mainModule.startSpeed;
-            tmp.constant = Mathf.Lerp(-1, -4, pwr);
+            tmp.constant = Mathf.Lerp(-1, -8, pwr);
             ps_mainModule.startSpeed = tmp;
 
 

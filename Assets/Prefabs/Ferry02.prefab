@@ -44,7 +44,7 @@ GameObject:
   - component: {fileID: 5838168064406254592}
   - component: {fileID: 6858749752414363620}
   - component: {fileID: 8700192797668271779}
-  m_Layer: 11
+  m_Layer: 4
   m_Name: Water_splash
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -4898,7 +4898,7 @@ GameObject:
   - component: {fileID: 5999052573289088677}
   - component: {fileID: 1718126862520360463}
   - component: {fileID: 1429277879694852953}
-  m_Layer: 11
+  m_Layer: 4
   m_Name: Water_splash
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -9752,7 +9752,7 @@ GameObject:
   - component: {fileID: 7605412239314945924}
   - component: {fileID: 2121718645015763163}
   - component: {fileID: 8255468225722123245}
-  m_Layer: 11
+  m_Layer: 4
   m_Name: Water_splash
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -14606,7 +14606,7 @@ GameObject:
   - component: {fileID: 1442595015360755382}
   - component: {fileID: 7795447914078958039}
   - component: {fileID: 6521340547650461517}
-  m_Layer: 11
+  m_Layer: 4
   m_Name: Water_splash
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -19458,7 +19458,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 4504109448633406885}
-  m_Layer: 11
+  m_Layer: 4
   m_Name: VisualR
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -19509,11 +19509,10 @@ Transform:
   m_GameObject: {fileID: 2803541574720942069}
   serializedVersion: 2
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 0, y: 0.26, z: 3.59}
+  m_LocalPosition: {x: 0, y: 0.26, z: 4.68}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
-  m_Children:
-  - {fileID: 8556945849527934252}
+  m_Children: []
   m_Father: {fileID: 3119502527397936694}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &2956498673308780848
@@ -19528,7 +19527,7 @@ GameObject:
   - component: {fileID: 5778546457674834972}
   - component: {fileID: 197071010138529849}
   - component: {fileID: 9120672827673396311}
-  m_Layer: 9
+  m_Layer: 4
   m_Name: FoamTrail_stern R
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -24406,7 +24405,7 @@ GameObject:
   - component: {fileID: 8396389485150468842}
   - component: {fileID: 7099768372690383261}
   - component: {fileID: 6531272323000892550}
-  m_Layer: 11
+  m_Layer: 4
   m_Name: Water_splash
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -29249,143 +29248,6 @@ ParticleSystemRenderer:
   m_MeshWeighting2: 1
   m_MeshWeighting3: 1
   m_MaskInteraction: 0
---- !u!1 &3021850171531161661
-GameObject:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  serializedVersion: 6
-  m_Component:
-  - component: {fileID: 8556945849527934252}
-  - component: {fileID: 918814568756400582}
-  - component: {fileID: 297009026030135664}
-  - component: {fileID: 4437567804302503421}
-  m_Layer: 0
-  m_Name: Camera
-  m_TagString: Untagged
-  m_Icon: {fileID: 0}
-  m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
-  m_IsActive: 1
---- !u!4 &8556945849527934252
-Transform:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 3021850171531161661}
-  serializedVersion: 2
-  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 0, y: 3.76, z: -12.59}
-  m_LocalScale: {x: 1, y: 1, z: 1}
-  m_ConstrainProportionsScale: 0
-  m_Children: []
-  m_Father: {fileID: 436740899309933891}
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!20 &918814568756400582
-Camera:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 3021850171531161661}
-  m_Enabled: 1
-  serializedVersion: 2
-  m_ClearFlags: 1
-  m_BackGroundColor: {r: 0.19215687, g: 0.3019608, b: 0.4745098, a: 0}
-  m_projectionMatrixMode: 1
-  m_GateFitMode: 2
-  m_FOVAxisMode: 0
-  m_Iso: 200
-  m_ShutterSpeed: 0.005
-  m_Aperture: 16
-  m_FocusDistance: 10
-  m_FocalLength: 50
-  m_BladeCount: 5
-  m_Curvature: {x: 2, y: 11}
-  m_BarrelClipping: 0.25
-  m_Anamorphism: 0
-  m_SensorSize: {x: 36, y: 24}
-  m_LensShift: {x: 0, y: 0}
-  m_NormalizedViewPortRect:
-    serializedVersion: 2
-    x: 0
-    y: 0
-    width: 1
-    height: 1
-  near clip plane: 0.3
-  far clip plane: 1000
-  field of view: 120
-  orthographic: 0
-  orthographic size: 5
-  m_Depth: 0
-  m_CullingMask:
-    serializedVersion: 2
-    m_Bits: 4294967295
-  m_RenderingPath: -1
-  m_TargetTexture: {fileID: 0}
-  m_TargetDisplay: 0
-  m_TargetEye: 3
-  m_HDR: 1
-  m_AllowMSAA: 1
-  m_AllowDynamicResolution: 0
-  m_ForceIntoRT: 0
-  m_OcclusionCulling: 1
-  m_StereoConvergence: 10
-  m_StereoSeparation: 0.022
---- !u!81 &297009026030135664
-AudioListener:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 3021850171531161661}
-  m_Enabled: 1
---- !u!114 &4437567804302503421
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 3021850171531161661}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: a79441f348de89743a2939f4d699eac1, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  m_RenderShadows: 1
-  m_RequiresDepthTextureOption: 2
-  m_RequiresOpaqueTextureOption: 2
-  m_CameraType: 0
-  m_Cameras: []
-  m_RendererIndex: -1
-  m_VolumeLayerMask:
-    serializedVersion: 2
-    m_Bits: 1
-  m_VolumeTrigger: {fileID: 0}
-  m_VolumeFrameworkUpdateModeOption: 2
-  m_RenderPostProcessing: 0
-  m_Antialiasing: 0
-  m_AntialiasingQuality: 2
-  m_StopNaN: 0
-  m_Dithering: 0
-  m_ClearDepth: 1
-  m_AllowXRRendering: 1
-  m_AllowHDROutput: 1
-  m_UseScreenCoordOverride: 0
-  m_ScreenSizeOverride: {x: 0, y: 0, z: 0, w: 0}
-  m_ScreenCoordScaleBias: {x: 0, y: 0, z: 0, w: 0}
-  m_RequiresDepthTexture: 0
-  m_RequiresColorTexture: 0
-  m_Version: 2
-  m_TaaSettings:
-    m_Quality: 3
-    m_FrameInfluence: 0.1
-    m_JitterScale: 1
-    m_MipBias: 0
-    m_VarianceClampScale: 0.9
-    m_ContrastAdaptiveSharpening: 0
 --- !u!1 &3765561256609784966
 GameObject:
   m_ObjectHideFlags: 0
@@ -29425,7 +29287,7 @@ AudioSource:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 3765561256609784966}
-  m_Enabled: 0
+  m_Enabled: 1
   serializedVersion: 4
   OutputAudioMixerGroup: {fileID: 0}
   m_audioClip: {fileID: 8300000, guid: 9708c8add467e47dc9f4e77dbf372787, type: 3}
@@ -29763,7 +29625,7 @@ GameObject:
   - component: {fileID: 3567221432136299806}
   - component: {fileID: 77766630486522693}
   - component: {fileID: 1926002611191321447}
-  m_Layer: 11
+  m_Layer: 4
   m_Name: Water_splash
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -34618,7 +34480,7 @@ GameObject:
   - component: {fileID: 1899794060292945494}
   - component: {fileID: 6896907470100566553}
   - component: {fileID: 962716294755064933}
-  m_Layer: 9
+  m_Layer: 4
   m_Name: FoamTrail_bow R
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -39619,13 +39481,13 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 5723704524195763496}
   serializedVersion: 2
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0.0019999966, z: -0.17199993}
+  m_LocalRotation: {x: 0.07265071, y: -0, z: -0, w: 0.9973575}
+  m_LocalPosition: {x: 0, y: 0.39000002, z: -0.17199993}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 1288938779931852004}
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+  m_LocalEulerAnglesHint: {x: 8.333, y: 0, z: 0}
 --- !u!198 &669867942020499468
 ParticleSystem:
   m_ObjectHideFlags: 0
@@ -39709,8 +39571,8 @@ ParticleSystem:
     startLifetime:
       serializedVersion: 2
       minMaxState: 3
-      scalar: 0.5
-      minScalar: 0.2
+      scalar: 2
+      minScalar: 0.75
       maxCurve:
         serializedVersion: 2
         m_Curve:
@@ -44448,7 +44310,7 @@ GameObject:
   m_Component:
   - component: {fileID: 5366762385239748405}
   - component: {fileID: 6727506299684098834}
-  m_Layer: 11
+  m_Layer: 4
   m_Name: ParticleFX
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -44503,7 +44365,7 @@ GameObject:
   - component: {fileID: 8060240469387510182}
   - component: {fileID: 2447976461472529399}
   - component: {fileID: 2211214502779609757}
-  m_Layer: 11
+  m_Layer: 4
   m_Name: Water_splash
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -49372,13 +49234,13 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 7346491664389867224}
   serializedVersion: 2
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0.0019999966, z: -0.17199993}
+  m_LocalRotation: {x: 0.07265071, y: -0, z: -0, w: 0.9973575}
+  m_LocalPosition: {x: 0, y: 0.39, z: -0.17199993}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 6951747552869308440}
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+  m_LocalEulerAnglesHint: {x: 8.333, y: 0, z: 0}
 --- !u!198 &5471200416471818537
 ParticleSystem:
   m_ObjectHideFlags: 0
@@ -49462,8 +49324,8 @@ ParticleSystem:
     startLifetime:
       serializedVersion: 2
       minMaxState: 3
-      scalar: 0.5
-      minScalar: 0.2
+      scalar: 2
+      minScalar: 0.75
       maxCurve:
         serializedVersion: 2
         m_Curve:
@@ -54208,6 +54070,7 @@ GameObject:
   - component: {fileID: 5587685600341720472}
   - component: {fileID: 1128303313339577568}
   - component: {fileID: 4126824524549986417}
+  - component: {fileID: 1652012792662525109}
   - component: {fileID: 7789304093311521026}
   - component: {fileID: 28285040801571613}
   m_Layer: 0
@@ -54249,7 +54112,7 @@ Rigidbody:
   m_Mass: 13000
   m_Drag: 0.0025
   m_AngularDrag: 0.05
-  m_CenterOfMass: {x: 0, y: -0.25, z: -0.1}
+  m_CenterOfMass: {x: 0, y: -1, z: 0}
   m_InertiaTensor: {x: 1, y: 1, z: 1}
   m_InertiaRotation: {x: 0, y: 0, z: 0, w: 1}
   m_IncludeLayers:
@@ -54278,7 +54141,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   GlobalObjectIdHash: 2762657789
-  InScenePlacedSourceGlobalObjectIdHash: 0
+  InScenePlacedSourceGlobalObjectIdHash: 2762657789
   DeferredDespawnTick: 0
   Ownership: 1
   AlwaysReplicateAsRoot: 0
@@ -54312,7 +54175,6 @@ MonoBehaviour:
   - {fileID: 1173327025401681598}
   - {fileID: 1210237989492207745}
   oscIn: {fileID: 0}
-  listenPort: 7000
   rawInputThrottle: 0
   rawInputSteering: 0
 --- !u!65 &2086394790459009743
@@ -54739,10 +54601,40 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   StartingWaypoint: {fileID: 0}
-  m_pid:
+  m_throttle_pid:
     pFactor: 0.25
-    iFactor: 0.01
+    iFactor: 0.05
     dFactor: 0.05
+  m_steering_pid:
+    pFactor: 1
+    iFactor: 0
+    dFactor: 2
+  oscIn: {fileID: 0}
+  oscOut: {fileID: 0}
+  steeringCurve:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 3
+      time: 0
+      value: 0
+      inSlope: 1
+      outSlope: 1
+      tangentMode: 34
+      weightedMode: 0
+      inWeight: 0
+      outWeight: 0
+    - serializedVersion: 3
+      time: 1
+      value: 1
+      inSlope: 1
+      outSlope: 1
+      tangentMode: 34
+      weightedMode: 0
+      inWeight: 0
+      outWeight: 0
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
 --- !u!114 &4126824524549986417
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -54757,14 +54649,35 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _openOnAwake: 0
   _udpBufferSize: 8192
-  _port: 7000
+  _port: 9999
   _mode: 0
   _multicastAddress: 
   _filterDuplicates: 0
   _addTimeTagsToBundledMessages: 0
   _mappings: []
+  _settingsFoldout: 1
+  _mappingsFoldout: 1
+  _messagesFoldout: 1
+--- !u!114 &1652012792662525109
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7512365166677485931}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 4a83e4d41d3144efb843adad75b278d3, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _openOnAwake: 0
+  _udpBufferSize: 8192
+  _port: 9998
+  _mode: 1
+  _remoteIpAddress: 192.170.3.215
+  _remoteStatus: 2
+  _bundleMessagesAutomatically: 1
   _settingsFoldout: 0
-  _mappingsFoldout: 0
   _messagesFoldout: 0
 --- !u!114 &7789304093311521026
 MonoBehaviour:
@@ -54830,7 +54743,7 @@ GameObject:
   - component: {fileID: 4272389139081102291}
   - component: {fileID: 6379256047440035808}
   m_Layer: 11
-  m_Name: EngineSound L
+  m_Name: EngineSound R
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -54960,7 +54873,7 @@ GameObject:
   - component: {fileID: 5733970702767596541}
   - component: {fileID: 1506978775349849591}
   - component: {fileID: 7691490076539229592}
-  m_Layer: 9
+  m_Layer: 4
   m_Name: FoamTrail_bow L
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -59866,7 +59779,7 @@ AudioSource:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 8023073986563325575}
-  m_Enabled: 0
+  m_Enabled: 1
   serializedVersion: 4
   OutputAudioMixerGroup: {fileID: 0}
   m_audioClip: {fileID: 8300000, guid: 9708c8add467e47dc9f4e77dbf372787, type: 3}
@@ -59967,7 +59880,7 @@ GameObject:
   - component: {fileID: 5274664394254045359}
   - component: {fileID: 6345123168355316578}
   - component: {fileID: 752495698106885008}
-  m_Layer: 11
+  m_Layer: 4
   m_Name: Water_splash
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -64822,7 +64735,7 @@ GameObject:
   - component: {fileID: 8792222490063335025}
   - component: {fileID: 8192668283236140842}
   - component: {fileID: 8919307476147226763}
-  m_Layer: 9
+  m_Layer: 4
   m_Name: FoamTrail_stern L
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -69698,7 +69611,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 3096121646801378942}
-  m_Layer: 11
+  m_Layer: 4
   m_Name: VisualL
   m_TagString: Untagged
   m_Icon: {fileID: 0}
